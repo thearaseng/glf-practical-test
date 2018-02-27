@@ -18,6 +18,7 @@ public class Order {
     private Operation operation;
     private String description;
     private Double amount;
+    private Double totalAmount;
 
     public Long getId() {
         return id;
@@ -49,5 +50,13 @@ public class Order {
 
     public void setAmount(Double amount) {
         this.amount = amount;
+    }
+
+    public Double getTotalAmount() {
+        return totalAmount;
+    }
+
+    public void setTotalAmount(Double totalAmount) {
+        this.totalAmount = totalAmount;
     }
 }

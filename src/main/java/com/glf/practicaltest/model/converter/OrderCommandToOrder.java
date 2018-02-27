@@ -31,6 +31,7 @@ public class OrderCommandToOrder implements Converter<OrderCommand, Order> {
         order.setId(orderCommand.getId());
         order.setAmount(orderCommand.getAmount());
         order.setDescription(orderCommand.getDescription());
+        order.setTotalAmount(orderCommand.getTotalAmount());
         order.setOperation(operationService.findById(orderCommand.getOperationId()));
 
         return order;
