@@ -16,6 +16,8 @@ public class Order {
 
     @ManyToOne
     private Operation operation;
+    @ManyToOne
+    private Area area;
     private String description;
     private Double amount;
     private Double totalAmount;
@@ -58,5 +60,13 @@ public class Order {
 
     public void setTotalAmount(Double totalAmount) {
         this.totalAmount = totalAmount;
+    }
+
+    public Area getArea() {
+        return area;
+    }
+
+    public void setArea(Area area) {
+        this.area = area;
     }
 }
