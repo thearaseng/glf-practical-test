@@ -1,5 +1,7 @@
 package com.glf.practicaltest.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 /**
@@ -19,6 +21,10 @@ public class Operation {
 
     @ManyToOne
     private Receipt receipt;
+
+    @OneToMany(mappedBy = "receipt")
+    @JsonIgnore
+    private Order order;
     private Double price;
     private Double defaultDlt;
     private Double defaultWage;
@@ -77,5 +83,13 @@ public class Operation {
 
     public void setDefaultWage(Double defaultWage) {
         this.defaultWage = defaultWage;
+    }
+
+    public Order getOrder() {
+        return order;
+    }
+
+    public void setOrder(Order order) {
+        this.order = order;
     }
 }
