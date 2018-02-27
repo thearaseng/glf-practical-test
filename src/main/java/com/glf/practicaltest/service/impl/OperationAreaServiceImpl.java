@@ -1,5 +1,7 @@
 package com.glf.practicaltest.service.impl;
 
+import com.glf.practicaltest.model.Area;
+import com.glf.practicaltest.model.Operation;
 import com.glf.practicaltest.model.OperationArea;
 import com.glf.practicaltest.model.command.OperationAreaCommand;
 import com.glf.practicaltest.model.converter.OperationAreaCommandToOperationArea;
@@ -28,6 +30,11 @@ public class OperationAreaServiceImpl implements OperationAreaService {
     @Override
     public OperationArea save(OperationAreaCommand operationAreaCommand) {
         return operationAreaRepository.save(operationAreaCommandToOperationArea.convert(operationAreaCommand));
+    }
+
+    @Override
+    public OperationArea findByOperationAndArea(Operation operation, Area area) {
+        return operationAreaRepository.findByOperationAndArea(operation, area).orElse(null);
     }
 
 }

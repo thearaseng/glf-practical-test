@@ -1,5 +1,7 @@
 package com.glf.practicaltest.service;
 
+import com.glf.practicaltest.model.Area;
+import com.glf.practicaltest.model.Operation;
 import com.glf.practicaltest.model.OperationArea;
 import com.glf.practicaltest.model.command.OperationAreaCommand;
 
@@ -11,5 +13,6 @@ import com.glf.practicaltest.model.command.OperationAreaCommand;
 public interface OperationAreaService {
 
     OperationArea save(OperationAreaCommand operationAreaCommand);
+    OperationArea findByOperationAndArea(Operation operation, Area area);
 
 }

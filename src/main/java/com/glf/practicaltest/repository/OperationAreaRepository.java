@@ -1,7 +1,11 @@
 package com.glf.practicaltest.repository;
 
+import com.glf.practicaltest.model.Area;
+import com.glf.practicaltest.model.Operation;
 import com.glf.practicaltest.model.OperationArea;
 import org.springframework.data.repository.CrudRepository;
+
+import java.util.Optional;
 
 /**
  * @author Theara Seng
@@ -9,5 +13,7 @@ import org.springframework.data.repository.CrudRepository;
  */
 
 public interface OperationAreaRepository extends CrudRepository<OperationArea, Long> {
+
+    Optional<OperationArea> findByOperationAndArea(Operation operation, Area area);
 
 }
