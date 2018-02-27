@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * @author Theara Seng
@@ -30,6 +31,14 @@ public class ReceiptServiceImpl implements ReceiptService {
         receiptRepository.findAll().forEach(receipts::add);
 
         return receipts;
+    }
+
+    @Override
+    public Receipt findById(Long id) {
+        Optional<Receipt> receiptOptional = receiptRepository.findById(id);
+
+        return receiptOptional.orElse(null);
+
     }
 
 }

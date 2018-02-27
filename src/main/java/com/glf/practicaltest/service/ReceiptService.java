@@ -12,5 +12,6 @@ import java.util.List;
 public interface ReceiptService {
 
     List<Receipt> findAll();
+    Receipt findById(Long id);
 
 }
