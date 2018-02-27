@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.ModelAndView;
-import com.glf.practicaltest.controller.exception.RESTfulNotFoundException;
+import com.glf.practicaltest.controller.exception.RestfulNotFoundException;
 
 /**
  * @author Theara Seng
@@ -28,9 +28,9 @@ public class ControllerExceptionHandler {
         return modelAndView;
     }
 
-    @ExceptionHandler(RESTfulNotFoundException.class)
+    @ExceptionHandler(RestfulNotFoundException.class)
     @ResponseBody
-    public ResponseEntity<Response> handleRestNotFoundException(RESTfulNotFoundException e) {
+    public ResponseEntity<Response> handleRestNotFoundException(RestfulNotFoundException e) {
         return new ResponseEntity<>(new Response("404", "resource not found"), HttpStatus.NOT_FOUND);
     }
 
