@@ -43,6 +43,7 @@ public class OperationServiceImpl implements OperationService {
 
     @Override
     public Operation save(Operation operation) {
+        operation.setId(null);
         return operationRepository.save(operation);
     }
 
