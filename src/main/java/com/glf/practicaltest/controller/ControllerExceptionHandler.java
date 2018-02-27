@@ -1,5 +1,6 @@
 package com.glf.practicaltest.controller;
 
+import com.glf.practicaltest.controller.exception.BadRequestNotFoundException;
 import com.glf.practicaltest.controller.rest.response.Response;
 import javassist.NotFoundException;
 import org.springframework.http.HttpStatus;
@@ -31,7 +32,13 @@ public class ControllerExceptionHandler {
     @ExceptionHandler(RestfulNotFoundException.class)
     @ResponseBody
     public ResponseEntity<Response> handleRestNotFoundException(RestfulNotFoundException e) {
-        return new ResponseEntity<>(new Response("404", "resource not found"), HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(new Response("404", "Resource Not Found"), HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(BadRequestNotFoundException.class)
+    @ResponseBody
+    public ResponseEntity<Response> handleBadRequestException(BadRequestNotFoundException e) {
+        return new ResponseEntity<>(new Response("400", "Bad Request"), HttpStatus.BAD_REQUEST);
     }
 
 }
