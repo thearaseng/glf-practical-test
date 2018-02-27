@@ -7,7 +7,7 @@ import javax.persistence.*;
  * Created on 27 Feb, 2018
  */
 
-@Entity
+@Entity(name = "orders")
 public class Order {
 
     @Id
