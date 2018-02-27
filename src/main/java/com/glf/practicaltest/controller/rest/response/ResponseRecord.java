@@ -5,7 +5,7 @@ package com.glf.practicaltest.controller.rest.response;
  * Created on 27 Feb, 2018
  */
 
-public class ResponseRecord<T> extends AbstractResponse {
+public class ResponseRecord<T> extends Response {
 
     private T data;
 

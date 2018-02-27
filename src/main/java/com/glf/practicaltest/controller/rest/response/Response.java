@@ -5,12 +5,12 @@ package com.glf.practicaltest.controller.rest.response;
  * Created on 27 Feb, 2018
  */
 
-public abstract class AbstractResponse {
+public class Response {
 
     private String code;
     private String msg;
 
-    public AbstractResponse(String code, String msg) {
+    public Response(String code, String msg) {
         this.code = code;
         this.msg = msg;
     }

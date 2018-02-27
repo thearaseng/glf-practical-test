@@ -7,7 +7,7 @@ import java.util.List;
  * Created on 27 Feb, 2018
  */
 
-public class ResponseList<T> extends AbstractResponse {
+public class ResponseList<T> extends Response {
 
     private List<T> data;
 
