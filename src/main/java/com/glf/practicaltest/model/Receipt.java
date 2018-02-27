@@ -1,5 +1,7 @@
 package com.glf.practicaltest.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -16,6 +18,7 @@ public class Receipt {
     private Long id;
 
     @OneToMany(mappedBy = "receipt")
+    @JsonIgnore
     private List<Operation> operations;
     private String receiptCode;
     private String description;
