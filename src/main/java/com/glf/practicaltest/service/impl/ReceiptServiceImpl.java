@@ -27,7 +27,7 @@ public class ReceiptServiceImpl implements ReceiptService {
     @Override
     public List<Receipt> findAll() {
         List<Receipt> receipts = new ArrayList<>();
-        receiptRepository.findAll().forEach(receipt -> receipts.add(receipt));
+        receiptRepository.findAll().forEach(receipts::add);
 
         return receipts;
     }
