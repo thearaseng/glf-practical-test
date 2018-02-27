@@ -1,0 +1,16 @@
+spring:
+  thymeleaf:
+    cache: false
+    mode: LEGACYHTML5
+
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/theara
+    username: postgres
+    password: 123
+  jpa:
+    generate-ddl: true
+    properties:
+      hibernate:
+        temp:
+          use_jdbc_metadata_defaults: false
