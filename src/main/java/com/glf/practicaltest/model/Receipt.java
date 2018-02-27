@@ -3,6 +3,7 @@ package com.glf.practicaltest.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 /**
  * @author Theara Seng
@@ -12,6 +13,7 @@ import javax.persistence.GenerationType;
 @Entity
 public class Receipt {
 
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
