@@ -34,4 +34,11 @@ public class AreaServiceImpl implements AreaService {
         areaRepository.findAll().forEach(areas::add);
         return areas;
     }
+
+    @Override
+    public Area findById(Long id) {
+        Optional<Area> areaOptional = areaRepository.findById(id);
+
+        return areaOptional.orElse(null);
+    }
 }

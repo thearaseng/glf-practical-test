@@ -12,5 +12,6 @@ import java.util.List;
 public interface AreaService {
 
     List<Area> findAll();
+    Area findById(Long id);
 
 }
