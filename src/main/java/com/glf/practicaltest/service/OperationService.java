@@ -13,5 +13,6 @@ public interface OperationService {
 
     List<Operation> findAll();
     Operation findById(Long id);
+    Operation save(Operation operation);
 
 }
