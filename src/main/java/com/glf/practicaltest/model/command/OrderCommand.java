@@ -9,6 +9,7 @@ public class OrderCommand {
 
     private Long id;
     private Long operationId;
+    private Long areaId;
     private String description;
     private Double amount;
     private Double totalAmount;
@@ -51,5 +52,13 @@ public class OrderCommand {
 
     public void setTotalAmount(Double totalAmount) {
         this.totalAmount = totalAmount;
+    }
+
+    public Long getAreaId() {
+        return areaId;
+    }
+
+    public void setAreaId(Long areaId) {
+        this.areaId = areaId;
     }
 }
