@@ -5,12 +5,12 @@ package com.glf.practicaltest.controller.exception;
  * Created on 27 Feb, 2018
  */
 
-public class RESTfulNotFoundException extends RuntimeException {
+public class RestfulNotFoundException extends RuntimeException {
 
-    public RESTfulNotFoundException() {
+    public RestfulNotFoundException() {
     }
 
-    public RESTfulNotFoundException(String message) {
+    public RestfulNotFoundException(String message) {
         super(message);
     }
 }

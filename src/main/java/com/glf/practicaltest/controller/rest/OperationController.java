@@ -1,5 +1,6 @@
 package com.glf.practicaltest.controller.rest;
 
+import com.glf.practicaltest.controller.exception.RestfulNotFoundException;
 import com.glf.practicaltest.controller.rest.response.ResponseList;
 import com.glf.practicaltest.controller.rest.response.ResponseRecord;
 import com.glf.practicaltest.model.Operation;
@@ -44,7 +45,13 @@ public class OperationController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<ResponseRecord<Operation>> findById(@PathVariable Long id) {
-        return new ResponseEntity<>(new ResponseRecord<>(HttpStatus.OK.toString(), "success", operationService.findById(id)), HttpStatus.OK);
+
+        Operation operation = operationService.findById(id);
+
+        if (operation == null)
+            throw new RestfulNotFoundException();
+
+        return new ResponseEntity<>(new ResponseRecord<>(HttpStatus.OK.toString(), "success", operation), HttpStatus.OK);
     }
 
 }
