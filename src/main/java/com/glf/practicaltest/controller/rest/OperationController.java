@@ -2,6 +2,7 @@ package com.glf.practicaltest.controller.rest;
 
 import com.glf.practicaltest.controller.exception.BadRequestNotFoundException;
 import com.glf.practicaltest.controller.exception.RestfulNotFoundException;
+import com.glf.practicaltest.controller.rest.response.Response;
 import com.glf.practicaltest.controller.rest.response.ResponseList;
 import com.glf.practicaltest.controller.rest.response.ResponseRecord;
 import com.glf.practicaltest.model.Operation;
@@ -68,6 +69,16 @@ public class OperationController {
 
         return new ResponseEntity<>(new ResponseRecord<>(HttpStatus.OK.toString(), "success", operation), HttpStatus.OK);
 
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    public ResponseEntity<Response> delete(@PathVariable Long id) {
+
+        if (operationService.findById(id) == null)
+            throw new BadRequestNotFoundException();
+
+        operationService.deleteById(id);
+        return new ResponseEntity<>((Response) null, HttpStatus.NO_CONTENT);
     }
 
 }

@@ -46,4 +46,9 @@ public class OperationServiceImpl implements OperationService {
         return operationRepository.save(operation);
     }
 
+    @Override
+    public void deleteById(Long id) {
+        operationRepository.deleteById(id);
+    }
+
 }
