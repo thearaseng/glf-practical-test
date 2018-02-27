@@ -33,6 +33,7 @@ public class OperationController {
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<ResponseRecord<Operation>> save(@RequestBody OperationCommand operationCommand) {
 
+        operationCommand.setId(null);
         Operation operation = operationService.save(operationCommandToOperation.convert(operationCommand));
 
         return new ResponseEntity<>(new ResponseRecord<>(HttpStatus.CREATED.toString(), "success", operation), HttpStatus.CREATED);
@@ -52,6 +53,17 @@ public class OperationController {
             throw new RestfulNotFoundException();
 
         return new ResponseEntity<>(new ResponseRecord<>(HttpStatus.OK.toString(), "success", operation), HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    public ResponseEntity<ResponseRecord<Operation>> update(@PathVariable Long id, @RequestBody OperationCommand operationCommand) {
+
+        operationCommand.setId(id);
+        Operation operation = operationCommandToOperation.convert(operationCommand);
+        operation = operationService.save(operation);
+
+        return new ResponseEntity<>(new ResponseRecord<>(HttpStatus.OK.toString(), "success", operation), HttpStatus.OK);
+
     }
 
 }
