@@ -27,6 +27,11 @@ public class OrderServiceImpl implements OrderService{
 
     @Override
     public Order save(OrderCommand orderCommand) {
+
+        if (orderCommand.getAmount() > 2_000D) {
+            orderCommand.setAmount(orderCommand.getAmount() * 0.95);
+        }
+
         return orderRepository.save(orderCommandToOrder.convert(orderCommand));
     }
 
