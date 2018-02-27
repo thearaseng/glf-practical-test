@@ -1,11 +1,15 @@
 package com.glf.practicaltest.controller;
 
+import com.glf.practicaltest.controller.rest.response.Response;
 import javassist.NotFoundException;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.ModelAndView;
+import com.glf.practicaltest.controller.exception.RESTfulNotFoundException;
 
 /**
  * @author Theara Seng
@@ -22,6 +26,12 @@ public class ControllerExceptionHandler {
         modelAndView.setViewName("/error/404");
 
         return modelAndView;
+    }
+
+    @ExceptionHandler(RESTfulNotFoundException.class)
+    @ResponseBody
+    public ResponseEntity<Response> handleRestNotFoundException(RESTfulNotFoundException e) {
+        return new ResponseEntity<>(new Response("404", "resource not found"), HttpStatus.NOT_FOUND);
     }
 
 }
