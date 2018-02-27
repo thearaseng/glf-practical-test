@@ -27,8 +27,8 @@ public class ReceiptController {
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public ResponseEntity<Receipt> findAll() {
-        return new ResponseEntity(new ResponseList<>("400", "success", receiptService.findAll()), HttpStatus.OK);
+    public ResponseEntity<ResponseList<Receipt>> findAll() {
+        return new ResponseEntity<>(new ResponseList<>("400", "success", receiptService.findAll()), HttpStatus.OK);
     }
 
 }
