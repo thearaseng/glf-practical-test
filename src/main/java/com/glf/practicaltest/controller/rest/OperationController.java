@@ -1,5 +1,6 @@
 package com.glf.practicaltest.controller.rest;
 
+import com.glf.practicaltest.controller.exception.BadRequestNotFoundException;
 import com.glf.practicaltest.controller.exception.RestfulNotFoundException;
 import com.glf.practicaltest.controller.rest.response.ResponseList;
 import com.glf.practicaltest.controller.rest.response.ResponseRecord;
@@ -57,6 +58,9 @@ public class OperationController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     public ResponseEntity<ResponseRecord<Operation>> update(@PathVariable Long id, @RequestBody OperationCommand operationCommand) {
+
+        if (operationService.findById(id) == null)
+            throw new BadRequestNotFoundException();
 
         operationCommand.setId(id);
         Operation operation = operationCommandToOperation.convert(operationCommand);
