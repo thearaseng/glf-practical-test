@@ -1,9 +1,7 @@
 package com.glf.practicaltest.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 /**
  * @author Theara Seng
@@ -17,6 +15,8 @@ public class Receipt {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @OneToMany(mappedBy = "receipt")
+    private List<Operation> operations;
     private String receiptCode;
     private String description;
 
@@ -26,6 +26,14 @@ public class Receipt {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public List<Operation> getOperations() {
+        return operations;
+    }
+
+    public void setOperations(List<Operation> operations) {
+        this.operations = operations;
     }
 
     public String getReceiptCode() {
