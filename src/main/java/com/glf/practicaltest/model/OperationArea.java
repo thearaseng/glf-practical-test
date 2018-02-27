@@ -16,6 +16,8 @@ public class OperationArea {
 
     @OneToOne
     private Area area;
+    @ManyToOne
+    private Operation operation;
     private Long dlt;
     private Long wage;
 
@@ -49,5 +51,13 @@ public class OperationArea {
 
     public void setWage(Long wage) {
         this.wage = wage;
+    }
+
+    public Operation getOperation() {
+        return operation;
+    }
+
+    public void setOperation(Operation operation) {
+        this.operation = operation;
     }
 }
